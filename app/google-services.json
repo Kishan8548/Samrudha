@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "729668666556",
+    "project_id": "samrudha-3cb75",
+    "storage_bucket": "samrudha-3cb75.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729668666556:android:65629c2e11228d3fdd3cb9",
+        "android_client_info": {
+          "package_name": "com.samrudha.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1RF97C4IATF4KrjCj-DzFQuBZu0uQc08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

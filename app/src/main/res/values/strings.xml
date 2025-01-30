@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Samrudha</string>
+    <string name="tagline">Harnessing AI to Cultivate Abundance</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="authorize">Authorize</string>
+    <string name="from_kode_krackers">From Kode Krackers</string>
+    <string name="otp_sent_successfully">OTP sent successfully</string>
+    <string name="failed_to_send_otp">Failed to send OTP. Please try again.</string>
+    <string name="invalid_otp">Invalid OTP. Please try again.</string>
+    <string name="enter_valid_phone">Please enter a valid 10-digit phone number</string>
+    <string name="success">Success</string>
+    <string name="authorization_successful">You have been successfully authorized!</string>
+    <string name="ok">OK</string>
+</resources>
+

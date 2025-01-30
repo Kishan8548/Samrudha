@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="green_primary">#32CD32</color>
+    <color name="gold_accent">#FFB300</color>
+    <color name="input_background">#F5F5F5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="dark_background">#1A1A1A</color>
+    <color name="text_hint">#808080</color>
+    <color name="green_dark">#06402B</color>
+    <color name="darktheme">#272727</color>
+</resources>
+
