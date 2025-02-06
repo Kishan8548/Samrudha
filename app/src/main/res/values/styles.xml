@@ -42,10 +42,19 @@
         <item name="android:textColorHint">#80000000</item>
     </style>
 
+
+
+
     <style name="FooterText">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/green_primary</item>
         <item name="android:fontFamily">@font/sen_regular</item>
     </style>
+    <style name="ToolbarTitleTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">25sp</item> <!-- Set the font size -->
+        <item name="android:textColor">@android:color/white</item> <!-- Set the text color (optional) -->
+        <item name="android:fontFamily">@font/sen_bold</item> <!-- Optionally, use your custom font -->
+    </style>
 </resources>
+
 

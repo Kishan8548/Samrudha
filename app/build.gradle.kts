@@ -2,14 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
+}
 
-}
-android {
-    // ... other configurations
-    buildFeatures {
-        viewBinding = true
-    }
-}
 android {
     namespace = "com.samrudha.app"
     compileSdk = 35
@@ -33,19 +27,35 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    buildFeatures {
+        viewBinding = true  // Enables ViewBinding
+    }
+    buildFeatures {
+        mlModelBinding = true
+    }
+
 }
 
 dependencies {
+    implementation ("com.rengwuxian.materialedittext:library:2.1.4")
+    implementation("org.tensorflow:tensorflow-lite-support:0.1.0")
+    implementation("org.tensorflow:tensorflow-lite-metadata:0.1.0")
     implementation("com.google.firebase:firebase-auth-ktx:21.3.0")
     implementation(platform("com.google.firebase:firebase-bom:32.2.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

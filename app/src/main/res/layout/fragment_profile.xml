@@ -1,15 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
     android:gravity="center"
-    android:orientation="vertical">
+    android:background="@color/darktheme">
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_user"
+        android:scaleType="centerCrop"
+        android:background="@drawable/circle_bg"
+        android:backgroundTint="@color/dark_background"
+        android:contentDescription="Profile Image"/>
 
     <TextView
-        android:id="@+id/settingsText"
+        android:id="@+id/profileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is the Profile Screen"
-        android:textSize="24sp"
-        android:textColor="@color/black" />
+        android:text="Farmer Name"
+        android:fontFamily="@font/sen_semibold"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/profileMobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXXXXXXXXX"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/profileEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not Provided"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/profileLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unknown"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/profileLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not Set"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="4dp"/>
+
+    <Button
+        android:id="@+id/btnEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Profile"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/green_dark"
+        android:textColor="@android:color/white"/>
+
 </LinearLayout>
