@@ -1,7 +1,6 @@
 package com.samrudha.app
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,24 +23,27 @@ class HomeFragment : Fragment() {
 
         val diseaseCard = view.findViewById<CardView>(R.id.diseaseCard)
         val cropRecommendationCard = view.findViewById<CardView>(R.id.cropRecommendationCard)
+        val fertilizerRecommendationCard = view.findViewById<CardView>(R.id.fertilizerCard)
 
         diseaseCard.setOnClickListener {
             replaceFragment(CropUploadFragment())
         }
 
         cropRecommendationCard.setOnClickListener {
-            replaceFragment(CropRecommendationFragment()) // Navigating to CropRecommendationFragment
+            replaceFragment(CropRecommendationFragment())
         }
 
+        fertilizerRecommendationCard.setOnClickListener {
+            replaceFragment(FertilizerRecommendationFragment())
+        }
     }
-
 
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
 
         fragmentTransaction.replace(R.id.fragment_container, fragment)
-        fragmentTransaction.addToBackStack(null) // Add to back stack so user can navigate back
+        fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
     }
 }
