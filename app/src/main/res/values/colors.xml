@@ -8,6 +8,7 @@
     <color name="dark_background">#1A1A1A</color>
     <color name="text_hint">#808080</color>
     <color name="green_dark">#06402B</color>
+    <color name="red">#FF0000</color>
     <color name="darktheme">#272727</color>
     <color name="gray">#B0B0B0</color>
 </resources>

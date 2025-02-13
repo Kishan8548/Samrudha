@@ -42,6 +42,12 @@
         <item name="android:textColorHint">#80000000</item>
     </style>
 
+    <style name="OutlinedTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:hint">@color/gray</item>
+        <item name="boxStrokeColor">@color/green_dark</item>
+        <item name="boxBackgroundColor">@color/dark_background</item>
+    </style>
 
 
 

@@ -41,8 +41,6 @@ class LoginActivity : AppCompatActivity() {
         tvRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
-
-
     }
 
     private fun loginUser() {
@@ -54,19 +52,32 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        lifecycleScope.launch {
-            try {
-                val response = RetrofitClient.instance.login(LoginRequest(email, password))
-                if (response.isSuccessful && response.body()?.success == true) {
-                    SessionManager.saveToken(this@LoginActivity, response.body()?.token ?: "")
-                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                    finish()
-                } else {
-                    Toast.makeText(this@LoginActivity, "Login Failed", Toast.LENGTH_SHORT).show()
-                }
-            } catch (e: Exception) {
-                Toast.makeText(this@LoginActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
-            }
+        // ✅ Temporary Login for Testing (Remove this when real API is ready)
+        if (email == "test@samrudha.com" && password == "123456") {
+            Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
+            SessionManager.saveToken(this, "dummy_token")  // Save a fake session
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+            return
+        } else {
+            Toast.makeText(this, "Invalid test credentials", Toast.LENGTH_SHORT).show()
+            return
         }
+
+        // ❌ Actual API Call (Commented until backend is ready)
+//        lifecycleScope.launch {
+//            try {
+//                val response = RetrofitClient.instance.login(LoginRequest(email, password))
+//                if (response.isSuccessful && response.body()?.success == true) {
+//                    SessionManager.saveToken(this@LoginActivity, response.body()?.token ?: "")
+//                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+//                    finish()
+//                } else {
+//                    Toast.makeText(this@LoginActivity, "Login Failed", Toast.LENGTH_SHORT).show()
+//                }
+//            } catch (e: Exception) {
+//                Toast.makeText(this@LoginActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+//            }
+//        }
     }
 }

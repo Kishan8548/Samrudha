@@ -1,0 +1,24 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/darktheme">
+
+    <ImageView
+        android:id="@+id/headerImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_profile"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/headerUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>

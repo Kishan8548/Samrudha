@@ -9,183 +9,192 @@
     android:background="@color/darktheme"
     tools:context=".FertilizerRecommendationFragment">
 
-    <!-- Temperature Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/temperatureInput"
+    <!-- Temperature -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_temperature"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Temperature (°C)"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        android:background="@drawable/rounded_input"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
-        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Humidity Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/humidityInput"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_temperature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Humidity -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_humidity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Humidity (%)"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/temperatureInput"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_temperature">
 
-    <!-- Moisture Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/moistureInput"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_humidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Moisture -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_moisture"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Moisture (%)"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/humidityInput"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_humidity">
 
-    <!-- Rainfall Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/rainfallInput"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_moisture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Rainfall -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_rainfall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Rainfall (mm)"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/moistureInput"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_moisture">
 
-    <!-- pH Level Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/phInput"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_rainfall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- pH Level -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_ph"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="pH Level"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/rainfallInput"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_rainfall">
 
-    <!-- Nitrogen Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/nitrogenInput"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_ph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Nitrogen -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_nitrogen"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Nitrogen (N)"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/phInput"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_ph">
 
-    <!-- Phosphorus Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/phosphorusInput"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_nitrogen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Phosphorus -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_phosphorus"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Phosphorus (P)"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/nitrogenInput"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_nitrogen">
 
-    <!-- Potassium Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/potassiumInput"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_phosphorus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Potassium -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_potassium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Potassium (K)"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/phosphorusInput"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_phosphorus">
 
-    <!-- Fetch from API Button -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_potassium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Submit Button -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/CropTypeInput"
+    <!-- Crop Type -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_crop_type"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Crop Type"
-        android:inputType="text"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/potassiumInput"
-        app:met_baseColor="@color/white"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_primaryColor="@color/green_dark" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_potassium">
 
+        <AutoCompleteTextView
+            android:id="@+id/auto_crop_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Fetch from API Button -->
     <Button
         android:id="@+id/fetchFromApiButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:backgroundTint="@color/dark_background"
-        android:text="Fetch from API"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/black"
+        android:text="FETCH FROM API"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/CropTypeInput" />
+        app:layout_constraintTop_toBottomOf="@id/input_crop_type"/>
 
+    <!-- Get Recommendation Button -->
     <Button
-        android:id="@+id/submitButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_recommend"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/green_dark"
-        android:text="Get Recommendation"
+        android:text="GET RECOMMENDATION"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fetchFromApiButton" />
+        app:layout_constraintTop_toBottomOf="@id/fetchFromApiButton"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

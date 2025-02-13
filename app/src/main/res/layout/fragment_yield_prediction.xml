@@ -9,173 +9,229 @@
     android:background="@color/darktheme"
     tools:context=".YieldPredictionFragment">
 
-    <!-- Latitude Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/et_latitude"
+    <!-- Latitude -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_latitude"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Latitude"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        android:background="@drawable/rounded_input"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Longitude Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/et_longitude"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_latitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Longitude -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_longitude"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Longitude"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        android:background="@drawable/rounded_input"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_latitude"/>
+        app:layout_constraintTop_toBottomOf="@id/input_latitude">
 
-    <!-- NDVI Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/et_ndvi"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_longitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- NDVI -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_ndvi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="NDVI"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        android:background="@drawable/rounded_input"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_longitude"/>
+        app:layout_constraintTop_toBottomOf="@id/input_longitude">
 
-    <!-- SAVI Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/et_savi"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_ndvi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- GNDVI -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_gndvi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="GNDVI"
+        style="@style/OutlinedTextField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_ndvi">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_gndvi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- NDWI -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_ndwi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="NDWI"
+        style="@style/OutlinedTextField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_gndvi">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_ndwi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- SAVI -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_savi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="SAVI"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        android:background="@drawable/rounded_input"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_ndvi"/>
+        app:layout_constraintTop_toBottomOf="@id/input_ndwi">
 
-    <!-- Soil Moisture Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/et_soil_moisture"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_savi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Soil Moisture -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_soil_moisture"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Soil Moisture (%)"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        android:background="@drawable/rounded_input"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_savi"/>
+        app:layout_constraintTop_toBottomOf="@id/input_savi">
 
-    <!-- Temperature Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/et_temperature"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_soil_moisture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Temperature -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_temperature"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Temperature (°C)"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        android:background="@drawable/rounded_input"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_soil_moisture"/>
+        app:layout_constraintTop_toBottomOf="@id/input_soil_moisture">
 
-    <!-- Rainfall Input -->
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/et_rainfall"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_temperature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Rainfall -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_rainfall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Rainfall (mm)"
-        android:inputType="numberDecimal"
-        android:textColor="@color/white"
-        android:background="@drawable/rounded_input"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelTextColor="@color/white"
-        app:met_baseColor="@color/white"
-        app:met_primaryColor="@color/green_dark"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_temperature"/>
+        app:layout_constraintTop_toBottomOf="@id/input_temperature">
 
-    <!-- Crop Type AutoCompleteTextView -->
-    <AutoCompleteTextView
-        android:id="@+id/auto_crop_type"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_rainfall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Crop Type (Dropdown) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_crop_type"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Crop Type"
-        android:background="@drawable/rounded_input"
-        android:textColor="@color/white"
-        android:completionThreshold="1"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_rainfall"/>
+        app:layout_constraintTop_toBottomOf="@id/input_rainfall">
 
-    <!-- Soil Type AutoCompleteTextView -->
-    <AutoCompleteTextView
-        android:id="@+id/auto_soil_type"
+        <AutoCompleteTextView
+            android:id="@+id/auto_crop_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_soil_type"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Soil Type"
-        android:background="@drawable/rounded_input"
-        android:textColor="@color/white"
-        android:completionThreshold="1"
+        style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/auto_crop_type"/>
+        app:layout_constraintTop_toBottomOf="@id/input_crop_type">
 
-    <!-- Fetch from API Button -->
+        <AutoCompleteTextView
+            android:id="@+id/auto_soil_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Predict Yield Button -->
+
     <Button
         android:id="@+id/fetchFromApiButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/dark_background"
-        android:text="Fetch from API"
+        android:backgroundTint="@color/black"
+        android:text="Fetch from api"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_predict"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/auto_soil_type"/>
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_soil_type"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <!-- Predict Yield Button -->
     <Button
         android:id="@+id/btn_predict"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:backgroundTint="@color/green_dark"
         android:text="Predict Yield"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fetchFromApiButton"/>
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_crop_type" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
