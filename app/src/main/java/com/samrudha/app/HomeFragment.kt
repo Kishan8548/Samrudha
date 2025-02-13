@@ -24,6 +24,7 @@ class HomeFragment : Fragment() {
         val diseaseCard = view.findViewById<CardView>(R.id.diseaseCard)
         val cropRecommendationCard = view.findViewById<CardView>(R.id.cropRecommendationCard)
         val fertilizerRecommendationCard = view.findViewById<CardView>(R.id.fertilizerCard)
+        val yieldPredictionCard = view.findViewById<CardView>(R.id.yieldPredictionCard) // Added for Yield Prediction
 
         diseaseCard.setOnClickListener {
             replaceFragment(CropUploadFragment())
@@ -35,6 +36,10 @@ class HomeFragment : Fragment() {
 
         fertilizerRecommendationCard.setOnClickListener {
             replaceFragment(FertilizerRecommendationFragment())
+        }
+
+        yieldPredictionCard.setOnClickListener {
+            replaceFragment(YieldPredictionFragment()) // Navigates to Yield Prediction Fragment
         }
     }
 

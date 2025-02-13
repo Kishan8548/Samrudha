@@ -7,14 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.content.Intent
+import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.fragment.app.Fragment
 import com.samrudha.app.databinding.FragmentEditProfileBinding
-import com.samrudha.app.network.LanguageLocationRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class EditProfileFragment : Fragment() {
 
@@ -39,7 +36,6 @@ class EditProfileFragment : Fragment() {
         binding.editMobileNumber.setText(sharedPreferences.getString("mobileNumber", ""))
         binding.editEmail.setText(sharedPreferences.getString("email", ""))
         binding.editLocation.setText(sharedPreferences.getString("location", ""))
-        binding.editLanguage.setText(sharedPreferences.getString("language", ""))
 
         val profileImageUri = sharedPreferences.getString("profileImage", null)
         profileImageUri?.let { binding.editProfileImage.setImageURI(Uri.parse(it)) }
@@ -56,37 +52,11 @@ class EditProfileFragment : Fragment() {
             editor.putString("mobileNumber", binding.editMobileNumber.text.toString())
             editor.putString("email", binding.editEmail.text.toString())
             editor.putString("location", binding.editLocation.text.toString())
-            editor.putString("language", binding.editLanguage.text.toString())
             editor.apply()
 
             parentFragmentManager.popBackStack()
         }
-
-        fetchLanguagesAndLocations()
     }
-
-    private fun fetchLanguagesAndLocations() {
-        val repository = LanguageLocationRepository()
-
-        CoroutineScope(Dispatchers.IO).launch {
-            repository.fetchLanguagesAndLocations { response ->
-                response?.let {
-                    val languages = it.tasks.flatMap { task -> task.result.languages }.map { lang -> lang.name }
-                    val locations = it.tasks.flatMap { task -> task.result.locations }.map { loc -> loc.name }
-
-                    CoroutineScope(Dispatchers.Main).launch {
-                        binding.editLanguage.setAdapter(
-                            ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, languages)
-                        )
-                        binding.editLocation.setAdapter(
-                            ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, locations)
-                        )
-                    }
-                }
-            }
-        }
-    }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    private const val BASE_URL = "https://rapidapi.com/wirefreethought/api/geodb-cities/"  // Replace with actual URL
+    private const val BASE_URL = "https://your-backend-url.com/api/"
 
     val instance: ApiService by lazy {
         Retrofit.Builder()

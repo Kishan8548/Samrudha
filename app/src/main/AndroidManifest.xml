@@ -33,6 +33,9 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" /> <!-- Splash Activity -->
+        <activity android:name=".RegisterActivity"
+            android:exported="true" />
+
         <activity
             android:name=".SplashActivity"
             android:exported="true"

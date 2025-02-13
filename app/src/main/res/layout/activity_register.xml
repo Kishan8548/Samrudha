@@ -2,12 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#272727"
-    tools:context=".LoginActivity">
+    android:background="#272727">
 
+    <!-- Top Section with Logo, App Name & Tagline -->
     <LinearLayout
         android:id="@+id/topSection"
         android:layout_width="0dp"
@@ -46,90 +45,110 @@
             android:layout_marginTop="3dp" />
     </LinearLayout>
 
+    <!-- Bottom Section for Register Form -->
     <LinearLayout
-        android:id="@+id/bottomSection"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/rounded_rectangle"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="20dp"
+        android:background="@drawable/rounded_rectangle"
         app:layout_constraintTop_toBottomOf="@+id/topSection"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHeight_percent="0.6">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="16dp"
-            android:background="@android:color/transparent"/>
+        <TextView
+            android:id="@+id/tvRegisterTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/sen_regular"
+            android:textColor="@color/green_primary"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+
+        <View android:layout_width="match_parent" android:layout_height="16dp"/>
 
         <!-- Email Input -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilEmail"
+            android:id="@+id/tilRegisterEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_input"
             android:hint="Enter Email">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEmail"
+                android:id="@+id/etRegisterEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_otp_input"
                 android:backgroundTint="@color/gray"
+                android:background="@drawable/rounded_otp_input"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/white"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="16dp"
-            android:background="@android:color/transparent"/>
+        <View android:layout_width="match_parent" android:layout_height="16dp"/>
 
         <!-- Password Input -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPassword"
+            android:id="@+id/tilRegisterPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Password"
-            app:passwordToggleEnabled="true">
+            app:endIconMode="password_toggle">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPassword"
+                android:id="@+id/etRegisterPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:background="@drawable/rounded_otp_input"
                 android:backgroundTint="@color/gray"
+                android:background="@drawable/rounded_otp_input"
                 android:textColor="@color/white"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="16dp"
-            android:background="@android:color/transparent"/>
+        <View android:layout_width="match_parent" android:layout_height="16dp"/>
 
-        <!-- Login Button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogin"
+        <!-- Confirm Password Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:hint="Confirm Password"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gray"
+                android:background="@drawable/rounded_otp_input"
+                android:inputType="textPassword"
+                android:textColor="@color/white"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="35dp"/>
+
+        <!-- Register Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
             android:backgroundTint="@color/green_primary"
-            android:text="Login"
-            app:cornerRadius="8dp"
             android:textColor="@color/black"/>
 
-        <!-- Register Redirect -->
+        <!-- Back to Login -->
         <TextView
-            android:id="@+id/tvRegister"
+            android:id="@+id/tvBackToLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:text="New user? Register here"
+            android:text="Already have an account? Login"
             android:textColor="@color/gold_accent"
-            android:textSize="14sp"/>
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
