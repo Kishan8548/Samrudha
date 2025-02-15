@@ -2,7 +2,6 @@ package com.samrudha.app
 
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
@@ -16,12 +15,13 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
+    private lateinit var bottomNav: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_samrudha)
 
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNav = findViewById(R.id.bottom_navigation)
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         val menuIcon = findViewById<ImageButton>(R.id.menuIcon)
         val profileIcon = findViewById<ImageButton>(R.id.profileIcon)
@@ -39,20 +39,23 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        // Profile icon -> Open Profile Fragment
+        // Profile icon -> Open Profile Fragment and update Bottom Navigation selection
         profileIcon.setOnClickListener {
             loadFragment(ProfileFragment())
+            bottomNav.selectedItemId = R.id.nav_profile // Update bottom navigation
             Log.d("ProfileFragment", "Profile icon clicked")
         }
 
         // Toolbar title -> Open Home Fragment
         titleText.setOnClickListener {
             loadFragment(HomeFragment())
+            bottomNav.selectedItemId = R.id.nav_home // Ensure Home is selected
         }
 
         // Default: Load Home Fragment
         if (savedInstanceState == null) {
             loadFragment(HomeFragment())
+            bottomNav.selectedItemId = R.id.nav_home
         }
 
         // Handle Bottom Navigation
@@ -68,14 +71,20 @@ class MainActivity : AppCompatActivity() {
         // Handle Navigation Drawer Item Clicks
         navView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home -> loadFragment(HomeFragment())
-                R.id.nav_assistant -> loadFragment(AssistantFragment())
-                R.id.nav_profile -> loadFragment(ProfileFragment())
-                R.id.nav_settings -> loadFragment(ProfileFragment()) // Settings Fragment
-                R.id.nav_logout -> {
-                    // Handle logout logic
-                    Log.d("Logout", "User logged out")
+                R.id.nav_home -> {
+                    loadFragment(HomeFragment())
+                    bottomNav.selectedItemId = R.id.nav_home
                 }
+                R.id.nav_assistant -> {
+                    loadFragment(AssistantFragment())
+                    bottomNav.selectedItemId = R.id.nav_assistant
+                }
+                R.id.nav_profile -> {
+                    loadFragment(ProfileFragment())
+                    bottomNav.selectedItemId = R.id.nav_profile
+                }
+                R.id.nav_settings -> loadFragment(ProfileFragment()) // Settings Fragment
+                R.id.nav_logout -> Log.d("Logout", "User logged out")
             }
             drawerLayout.closeDrawers() // Close drawer after selection
             true

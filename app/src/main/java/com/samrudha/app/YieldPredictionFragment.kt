@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
+import android.content.Context
+import android.view.inputmethod.InputMethodManager
 
 class YieldPredictionFragment : Fragment() {
 
@@ -21,14 +23,13 @@ class YieldPredictionFragment : Fragment() {
     private lateinit var etTemperature: TextInputEditText
     private lateinit var etRainfall: TextInputEditText
     private lateinit var autoCropType: AutoCompleteTextView
-    private lateinit var autoSoilType: AutoCompleteTextView
     private lateinit var btnFetchFromAPI: Button
     private lateinit var btnPredict: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view = inflater.inflate(R.layout.fragment_yield_prediction, container, false)
 
         // Initialize views
@@ -40,12 +41,11 @@ class YieldPredictionFragment : Fragment() {
         etTemperature = view.findViewById(R.id.et_temperature)
         etRainfall = view.findViewById(R.id.et_rainfall)
         autoCropType = view.findViewById(R.id.auto_crop_type)
-        autoSoilType = view.findViewById(R.id.auto_soil_type)
         btnFetchFromAPI = view.findViewById(R.id.fetchFromApiButton)
         btnPredict = view.findViewById(R.id.btn_predict)
 
-        // Setup AutoCompleteTextView suggestions
-        setupAutoCompleteViews()
+        // Setup AutoCompleteTextView for crop type
+        setupAutoCompleteCropType()
 
         // Set button click listeners
         btnFetchFromAPI.setOnClickListener { fetchFromAPI() }
@@ -54,21 +54,25 @@ class YieldPredictionFragment : Fragment() {
         return view
     }
 
-    private fun setupAutoCompleteViews() {
-        val cropTypes = arrayOf(
+    private fun setupAutoCompleteCropType() {
+        val cropTypes = listOf(
             "Wheat", "Rice", "Maize", "Barley", "Soybean", "Cotton", "Sugarcane", "Sorghum",
             "Millets", "Chickpea", "Pigeon Pea", "Black Gram", "Green Gram", "Lentil", "Peas",
             "Groundnut", "Sesame", "Sunflower", "Mustard", "Linseed", "Castor", "Jute", "Tobacco",
             "Tea", "Coffee", "Rubber", "Coconut", "Banana", "Mango", "Grapes", "Apple"
         )
 
-        val soilTypes = arrayOf("Sandy", "Clay", "Loamy", "Peaty", "Saline", "Chalky")
-
         val cropAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, cropTypes)
-        val soilAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, soilTypes)
-
         autoCropType.setAdapter(cropAdapter)
-        autoSoilType.setAdapter(soilAdapter)
+        autoCropType.threshold = 1
+
+        // Force show keyboard when clicked
+        autoCropType.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.showSoftInput(autoCropType, InputMethodManager.SHOW_IMPLICIT)
+            }
+        }
     }
 
     private fun fetchFromAPI() {
@@ -86,16 +90,15 @@ class YieldPredictionFragment : Fragment() {
         val temperature = etTemperature.text.toString().toDoubleOrNull()
         val rainfall = etRainfall.text.toString().toDoubleOrNull()
         val cropType = autoCropType.text.toString()
-        val soilType = autoSoilType.text.toString()
 
         // Validate inputs
         if (latitude == null || longitude == null || ndvi == null || savi == null || soilMoisture == null ||
-            temperature == null || rainfall == null || cropType.isEmpty() || soilType.isEmpty()) {
+            temperature == null || rainfall == null || cropType.isEmpty()) {
             Toast.makeText(requireContext(), "Please fill all fields correctly", Toast.LENGTH_SHORT).show()
             return
         }
 
         // TODO: Call ML model or API for yield prediction
-        Toast.makeText(requireContext(), "Predicting Yield for $cropType on $soilType soil", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Predicting Yield for $cropType", Toast.LENGTH_SHORT).show()
     }
 }

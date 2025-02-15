@@ -45,24 +45,6 @@
             android:inputType="numberDecimal"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Moisture -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_moisture"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Moisture (%)"
-        style="@style/OutlinedTextField"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_humidity">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_moisture"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
     <!-- Rainfall -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_rainfall"
@@ -72,7 +54,7 @@
         style="@style/OutlinedTextField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_moisture">
+        app:layout_constraintTop_toBottomOf="@id/input_humidity">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_rainfall"
@@ -153,6 +135,47 @@
             android:inputType="numberDecimal"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Carbon -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_carbon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Carbon (mg/kg)"
+        style="@style/OutlinedTextField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_potassium">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_carbon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Soil Type Dropdown -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_soil_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Soil Type"
+        style="@style/OutlinedTextField"
+        app:layout_constraintTop_toBottomOf="@id/input_carbon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <AutoCompleteTextView
+            android:id="@+id/auto_soil_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
     <!-- Fetch from API Button -->
     <Button
         android:id="@+id/fetchFromApiButton"
@@ -161,10 +184,9 @@
         android:backgroundTint="@color/black"
         android:text="Fetch from API"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/btn_recommend"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_potassium"
+        app:layout_constraintTop_toBottomOf="@id/input_soil_type"
         android:layout_marginTop="16dp"/>
 
     <!-- Recommend Crop Button -->

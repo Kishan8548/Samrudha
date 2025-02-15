@@ -44,7 +44,8 @@
 
     <style name="OutlinedTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:textColor">@color/white</item>
-        <item name="android:hint">@color/gray</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="hintTextColor">@color/hint_color</item> <!-- Use the selector -->
         <item name="boxStrokeColor">@color/green_dark</item>
         <item name="boxBackgroundColor">@color/dark_background</item>
     </style>

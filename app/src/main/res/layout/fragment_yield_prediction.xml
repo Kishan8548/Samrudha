@@ -171,39 +171,27 @@
             android:inputType="numberDecimal"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Crop Type (Dropdown) -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_crop_type"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Crop Type"
-        style="@style/OutlinedTextField"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_rainfall">
+    android:id="@+id/input_crop_type"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Crop Type"
+    style="@style/OutlinedTextField"
+    app:layout_constraintTop_toBottomOf="@id/input_rainfall"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
 
-        <AutoCompleteTextView
-            android:id="@+id/auto_crop_type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_soil_type"
-        android:layout_width="0dp"
+    <AutoCompleteTextView
+        android:id="@+id/auto_crop_type"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Soil Type"
-        style="@style/OutlinedTextField"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_crop_type">
-
-        <AutoCompleteTextView
-            android:id="@+id/auto_soil_type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"/>
-    </com.google.android.material.textfield.TextInputLayout>
+        android:inputType="text"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+</com.google.android.material.textfield.TextInputLayout>
 
     <!-- Predict Yield Button -->
 
@@ -218,7 +206,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_soil_type"
+        app:layout_constraintTop_toBottomOf="@id/input_crop_type"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button

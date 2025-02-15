@@ -27,24 +27,6 @@
             android:inputType="numberDecimal"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Humidity -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_humidity"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Humidity (%)"
-        style="@style/OutlinedTextField"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_temperature">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_humidity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
     <!-- Moisture -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_moisture"
@@ -52,9 +34,9 @@
         android:layout_height="wrap_content"
         android:hint="Moisture (%)"
         style="@style/OutlinedTextField"
+        app:layout_constraintTop_toBottomOf="@id/input_temperature"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_humidity">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_moisture"
@@ -70,9 +52,9 @@
         android:layout_height="wrap_content"
         android:hint="Rainfall (mm)"
         style="@style/OutlinedTextField"
+        app:layout_constraintTop_toBottomOf="@id/input_moisture"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_moisture">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_rainfall"
@@ -88,9 +70,9 @@
         android:layout_height="wrap_content"
         android:hint="pH Level"
         style="@style/OutlinedTextField"
+        app:layout_constraintTop_toBottomOf="@id/input_rainfall"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_rainfall">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_ph"
@@ -106,9 +88,9 @@
         android:layout_height="wrap_content"
         android:hint="Nitrogen (N)"
         style="@style/OutlinedTextField"
+        app:layout_constraintTop_toBottomOf="@id/input_ph"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_ph">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_nitrogen"
@@ -124,9 +106,9 @@
         android:layout_height="wrap_content"
         android:hint="Phosphorus (P)"
         style="@style/OutlinedTextField"
+        app:layout_constraintTop_toBottomOf="@id/input_nitrogen"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_nitrogen">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_phosphorus"
@@ -142,12 +124,30 @@
         android:layout_height="wrap_content"
         android:hint="Potassium (K)"
         style="@style/OutlinedTextField"
+        app:layout_constraintTop_toBottomOf="@id/input_phosphorus"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_phosphorus">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_potassium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Carbon -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_carbon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Carbon (mg/kg)"
+        style="@style/OutlinedTextField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_potassium">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_carbon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"/>
@@ -160,15 +160,42 @@
         android:layout_height="wrap_content"
         android:hint="Crop Type"
         style="@style/OutlinedTextField"
+        app:layout_constraintTop_toBottomOf="@id/input_carbon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_potassium">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <AutoCompleteTextView
             android:id="@+id/auto_crop_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none"/>
+            android:inputType="text"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_soil_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Soil Type"
+        style="@style/OutlinedTextField"
+        app:layout_constraintTop_toBottomOf="@id/input_crop_type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <AutoCompleteTextView
+            android:id="@+id/auto_soil_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Fetch from API Button -->
@@ -180,9 +207,9 @@
         android:backgroundTint="@color/black"
         android:text="FETCH FROM API"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_soil_type"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_crop_type"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Get Recommendation Button -->
     <Button
@@ -193,8 +220,7 @@
         android:backgroundTint="@color/green_dark"
         android:text="GET RECOMMENDATION"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fetchFromApiButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fetchFromApiButton"/>
-
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
